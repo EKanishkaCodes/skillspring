@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta
+      name="description"
+      content="A personalized learning dashboard that turns your career goals into a clear, achievable learning path."
+    />
+    <title>SkillSpring — Your career, in focus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="SkillSpring home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M16 3.5 18.9 13l9.6 3-9.6 2.9-2.9 9.6-2.9-9.6-9.6-2.9 9.6-3L16 3.5Z" fill="currentColor" />
+              <circle cx="16" cy="16" r="2.4" fill="#fff" />
+            </svg>
+          </span>
+          <span>skillspring<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="nav-list">
+          <a class="nav-item active" href="#overview" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="4" rx="1.5"/><rect x="13.5" y="9.5" width="7" height="11" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+            <span>Overview</span>
+          </a>
+          <a class="nav-item" href="#skills">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 14.6 9l5.9.9-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.9L12 3.5Z"/><path d="M12 10v4m-2-2h4"/></svg>
+            <span>My skills</span>
+          </a>
+          <a class="nav-item" href="#learning-path">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h5.5a3 3 0 0 1 3 3v12a3 3 0 0 0-3-3H5z"/><path d="M19 4.5h-5.5a3 3 0 0 0-3 3v12a3 3 0 0 1 3-3H19z"/></svg>
+            <span>Learning path</span>
+            <span class="nav-count" id="nav-count">4</span>
+          </a>
+          <a class="nav-item" href="#milestones">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 20V4m0 1h11l-2 3 2 3H6"/><path d="M4 20h4"/></svg>
+            <span>Milestones</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="streak-card">
+            <div class="streak-icon" aria-hidden="true">✦</div>
+            <div>
+              <p class="streak-title">You’re on a roll</p>
+              <p class="streak-copy"><strong>5 day</strong> learning streak</p>
+            </div>
+            <span class="streak-spark" aria-hidden="true">↗</span>
+          </div>
+          <a class="nav-item settings-link" href="#profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.8 1.8 0 0 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.2a1.8 1.8 0 0 1-3.6 0v-.2a1.8 1.8 0 0 0-3-.9l-.1.1a1.8 1.8 0 0 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3h-.2a1.8 1.8 0 0 1 0-3.6h.2a1.8 1.8 0 0 0 .9-3l-.1-.1a1.8 1.8 0 0 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.2a1.8 1.8 0 0 1 3.6 0v.2a1.8 1.8 0 0 0 3 .9l.1-.1a1.8 1.8 0 0 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.2a1.8 1.8 0 0 1 0 3.6h-.2a1.8 1.8 0 0 0-.9 3Z"/></svg>
+            <span>Settings</span>
+          </a>
+          <div class="profile-mini" id="profile">
+            <div class="avatar avatar-photo" aria-hidden="true">MC</div>
+            <div class="profile-copy">
+              <span class="profile-name">Maya Chen</span>
+              <span class="profile-plan">Personal workspace</span>
+            </div>
+            <button class="icon-button profile-menu" type="button" aria-label="Profile options">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong>Overview</strong></div>
+          <div class="topbar-actions">
+            <span class="today-label" id="today-label">Tuesday, May 21</span>
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+              <span class="notification-dot"></span>
+            </button>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL LEARNING SPACE</p>
+              <h1>Good morning, <span id="greeting-name">Maya</span> <span class="wave" aria-hidden="true">✳</span></h1>
+              <p class="welcome-subtitle">A little progress today goes a long way. Here’s where you’re headed.</p>
+            </div>
+            <button class="button button-secondary" id="edit-goal" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>
+              Edit career goal
+            </button>
+          </section>
+
+          <section class="goal-banner" aria-labelledby="goal-title">
+            <div class="goal-art" aria-hidden="true">
+              <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+              <span class="orbit orbit-three"></span><span class="orbit-center">✦</span>
+              <span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span>
+            </div>
+            <div class="goal-content">
+              <div class="goal-kicker"><span class="goal-kicker-dot"></span> YOUR NORTH STAR</div>
+              <h2 id="goal-title">Become a <span id="goal-title-role">Product Designer</span></h2>
+              <p class="goal-description">You’re building the right skills. Keep your momentum and your next role is closer than it feels.</p>
+              <div class="goal-meta">
+                <span class="goal-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="goal-duration">~12 weeks to ready</span></span>
+                <span class="goal-meta-divider"></span>
+                <span class="goal-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7z"/><path d="m9 12 2 2 4-4"/></svg><span>Personalized for you</span></span>
+              </div>
+            </div>
+            <div class="goal-progress">
+              <div class="goal-progress-top"><span>CAREER READINESS</span><strong id="readiness-value">68%</strong></div>
+              <div class="readiness-ring" id="readiness-ring" role="img" aria-label="Career readiness 68 percent">
+                <div class="readiness-ring-inner"><span id="ring-value">68</span><small>%</small></div>
+              </div>
+              <span class="readiness-caption">You’re getting there</span>
+              <button class="text-button" type="button" id="readiness-details">See how it’s calculated <span aria-hidden="true">↗</span></button>
+            </div>
+          </section>
+
+          <section class="stats-grid" aria-label="Learning overview">
+            <article class="stat-card">
+              <div class="stat-icon stat-icon-lavender"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div>
+              <div class="stat-text"><span class="stat-label">Skills you’ve mastered</span><div class="stat-value"><strong id="mastered-count">6</strong><span class="stat-trend">+2 this month</span></div><div class="stat-foot"><span id="mastered-detail">6 of 10 role skills</span><span class="tiny-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon stat-icon-peach"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3Z"/><path d="m19 16 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z"/></svg></div>
+              <div class="stat-text"><span class="stat-label">Skills in progress</span><div class="stat-value"><strong id="progress-count">2</strong><span class="stat-trend trend-neutral">You’re on track</span></div><div class="stat-foot"><span>Keep your momentum going</span><span class="progress-dots" aria-hidden="true"><i class="filled"></i><i class="filled"></i><i></i><i></i><i></i></span></div></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon stat-icon-mint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16"/><path d="m7 15 4-4 3 2 6-7"/></svg></div>
+              <div class="stat-text"><span class="stat-label">Learning time</span><div class="stat-value"><strong>8.5 <small>hrs</small></strong><span class="stat-trend">↑ 12%</span></div><div class="stat-foot"><span>This week</span><span class="mini-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div></div>
+            </article>
+          </section>
+
+          <section class="content-grid">
+            <div class="main-column">
+              <section class="panel skills-panel" id="skills">
+                <div class="section-heading">
+                  <div><p class="section-overline">ROLE REQUIREMENTS VS. YOUR SKILLS</p><h2>Career skill match</h2><p class="section-subtitle">See which strengths transfer and where to focus next.</p></div>
+                  <button class="button button-small button-quiet" id="all-skills" type="button">View all skills <span aria-hidden="true">→</span></button>
+                </div>
+                <div class="skill-legend"><span><i class="legend-dot legend-strong"></i> Strong</span><span><i class="legend-dot legend-growing"></i> Growing</span><span><i class="legend-dot legend-gap"></i> To develop</span></div>
+                <div class="match-summary" id="match-summary"></div>
+                <div class="skill-list" id="skill-list"></div>
+                <div class="skill-note"><span class="sparkle-small" aria-hidden="true">✦</span><span><strong>Your edge:</strong> You already have a strong foundation in <span id="strength-copy">Visual design and User research</span>.</span></div>
+              </section>
+
+              <section class="panel learner-panel" id="learner-profile">
+                <div class="section-heading">
+                  <div><p class="section-overline">YOUR EXPERIENCE, ALL IN ONE PLACE</p><h2>Learner profile</h2><p class="section-subtitle">Your background and evidence help personalize your next steps.</p></div>
+                  <div class="learner-actions"><button class="button button-small button-quiet sample-button" id="load-fullstack-scenario" type="button">Try Full Stack scenario</button><button class="button button-small button-quiet" id="edit-profile" type="button">Edit profile <span aria-hidden="true">↗</span></button></div>
+                </div>
+                <div class="learner-details">
+                  <div class="learner-detail"><span>BACKGROUND</span><strong id="profile-background">Early-career designer</strong></div>
+                  <div class="learner-detail"><span>SKILLS YOU BRING</span><div class="profile-chip-list" id="profile-skills"></div></div>
+                  <div class="learner-detail"><span>CERTIFICATIONS</span><div class="profile-record-list" id="profile-certifications"></div></div>
+                  <div class="learner-detail"><span>PROJECTS</span><div class="profile-record-list" id="profile-projects"></div></div>
+                </div>
+              </section>
+
+              <section class="panel path-panel" id="learning-path">
+                <div class="section-heading">
+                  <div><p class="section-overline">BUILT AROUND YOUR GOAL</p><h2>Your learning path</h2><p class="section-subtitle">Small, focused steps. A real skill you can show for each one.</p></div>
+                  <button class="button button-small button-quiet" id="path-filter" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg><span>All skills</span><span aria-hidden="true">⌄</span></button>
+                </div>
+                <div class="path-summary"><div class="path-summary-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7z"/><path d="m9 12 2 2 4-4"/></svg></div><div><strong id="path-summary-title">A path that fits your life</strong><span id="path-summary-copy">4 curated steps · about 3 hours per week</span></div><span class="path-sparkle" aria-hidden="true">✦</span></div>
+                <div class="path-list" id="path-list"></div>
+                <button class="button button-outline path-more" type="button" id="show-path">Explore full learning path <span aria-hidden="true">→</span></button>
+              </section>
+
+              <section class="panel resources-panel" id="recommendations">
+                <div class="section-heading">
+                  <div><p class="section-overline">PRACTICE THAT MOVES YOU FORWARD</p><h2>Recommended for you</h2><p class="section-subtitle">A mix of focused lessons and hands-on practice for your next skill.</p></div>
+                </div>
+                <div class="resource-list" id="resource-list"></div>
+              </section>
+            </div>
+
+            <aside class="side-column">
+              <section class="panel coach-panel">
+                <div class="coach-header"><div class="coach-avatar" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="M18 3.5 21.3 14.7 32.5 18l-11.2 3.3L18 32.5l-3.3-11.2L3.5 18l11.2-3.3L18 3.5Z" fill="currentColor"/><circle cx="18" cy="18" r="3" fill="white"/></svg></div><div><p class="coach-label">YOUR AI LEARNING COACH</p><h2>A little insight</h2></div><span class="coach-live"><i></i> LIVE</span></div>
+                <div class="coach-message"><span class="quote-mark">“</span><p id="coach-message">You have a great eye for visual design. Pair that with some hands-on prototyping practice and you’ll be ready to bring your ideas to life.</p></div>
+                <div class="coach-divider"></div>
+                <div class="coach-focus"><div class="focus-top"><span>NEXT BEST SKILL</span><span class="focus-match">HIGH IMPACT</span></div><div class="focus-skill"><div class="focus-skill-icon" id="focus-icon">✳</div><div><strong id="focus-title">Prototyping</strong><span id="focus-detail">Closes your biggest skill gap</span></div><button class="round-arrow" type="button" id="focus-start" aria-label="Start recommended skill">↗</button></div><div class="focus-progress"><span></span></div></div>
+                <button class="button button-dark coach-button" type="button" id="ask-coach"><span class="coach-button-spark">✦</span> Ask your learning coach <span class="coach-button-arrow">↗</span></button>
+                <p class="coach-disclaimer">Recommendations adapt as you make progress.</p>
+              </section>
+
+              <section class="panel agents-panel" id="agent-workspace">
+                <div class="agents-heading">
+                  <div><p class="section-overline">COLLABORATIVE LEARNING SYSTEM</p><h2>Agent workspace</h2></div>
+                  <span class="agent-count"><i></i> <span id="agent-mode">CHECKING AGENTS</span></span>
+                </div>
+                <p class="agents-intro">Each specialist contributes to one shared, goal-aware learning plan.</p>
+                <div class="agent-list" id="agent-list"></div>
+                <div class="agent-consensus" id="agent-consensus"></div>
+                <button class="text-button agent-details-button" type="button" id="agent-details">How agents collaborate <span aria-hidden="true">↗</span></button>
+                <p class="coach-disclaimer" id="agent-disclaimer">Checking whether a local AI model is configured. Learner data is never sent to an external AI service.</p>
+              </section>
+
+              <section class="panel assessment-panel" id="assessments">
+                <div class="assessment-heading"><div><p class="section-overline">CHECK YOUR UNDERSTANDING</p><h2>Skill check-in</h2></div><span class="assessment-icon" aria-hidden="true">✓</span></div>
+                <p class="assessment-copy" id="assessment-copy">A quick knowledge check helps tune your learning path to what you know today.</p>
+                <div class="assessment-result" id="assessment-result"></div>
+                <button class="button button-outline assessment-button" type="button" id="start-assessment">Take a quick assessment <span aria-hidden="true">→</span></button>
+              </section>
+
+              <section class="panel milestones-panel" id="milestones">
+                <div class="milestones-heading"><div><p class="section-overline">THE ROAD AHEAD</p><h2>Milestones</h2></div><button class="icon-button more-button" type="button" aria-label="More milestone options"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button></div>
+                <div class="milestone-track" id="milestone-track"></div>
+                <button class="text-button milestone-link" type="button" id="milestone-view">View all milestones <span aria-hidden="true">→</span></button>
+              </section>
+
+              <section class="weekly-card">
+                <div class="weekly-top"><span class="weekly-icon">✦</span><span>THIS WEEK</span><span class="weekly-weather">☀</span></div>
+                <h3>One hour makes a difference.</h3>
+                <p id="weekly-copy">You’re just 1.5 hours away from your weekly learning goal.</p>
+                <div class="weekly-progress"><span></span></div>
+                <div class="weekly-progress-label"><span>8.5 of 10 hours</span><span>85%</span></div>
+              </section>
+            </aside>
+          </section>
+          <footer class="footer"><span>Made for your next chapter.</span><span id="save-status" role="status">Offline preview</span><span class="copyright-label">© 2025 SkillSpring Learning</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="modal" id="goal-modal" aria-labelledby="modal-title">
+      <form method="dialog" class="modal-card" id="goal-form">
+        <button class="modal-close icon-button" aria-label="Close dialog" value="cancel" type="submit">×</button>
+        <p class="section-overline">YOUR NEXT CHAPTER</p>
+        <h2 id="modal-title">Where would you like to go?</h2>
+        <p class="modal-description">Choose a career goal and we’ll reshape your skills map and learning path around it.</p>
+        <label for="career-select">Target career</label>
+        <select id="career-select" name="career"></select>
+        <div class="modal-actions"><button class="button button-secondary" value="cancel" type="submit">Cancel</button><button class="button button-primary" id="save-goal" value="default" type="submit">Update my path <span aria-hidden="true">→</span></button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="info-modal" aria-labelledby="info-title">
+      <form method="dialog" class="modal-card info-modal-card">
+        <button class="modal-close icon-button" aria-label="Close dialog" value="cancel" type="submit">×</button>
+        <p class="section-overline" id="info-eyebrow">A CLOSER LOOK</p>
+        <h2 id="info-title">Your next step</h2>
+        <div id="info-content" class="info-content"></div>
+        <div class="modal-actions"><button class="button button-primary" value="cancel" type="submit">Got it</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="profile-modal" aria-labelledby="profile-modal-title">
+      <form class="modal-card profile-form" id="profile-form" method="dialog">
+        <button class="modal-close icon-button" aria-label="Close dialog" value="cancel" type="submit" formnovalidate>×</button>
+        <p class="section-overline">YOUR EXPERIENCE</p>
+        <h2 id="profile-modal-title">Make this profile yours.</h2>
+        <p class="modal-description">Your details and evidence help us make a more relevant career comparison.</p>
+        <label for="profile-name-input">Name</label>
+        <input id="profile-name-input" name="name" required maxlength="60" />
+        <label for="profile-background-input">Current role or background</label>
+        <input id="profile-background-input" name="background" maxlength="100" />
+        <label for="profile-career-select">Career goal</label>
+        <select id="profile-career-select" name="career"></select>
+        <label for="profile-skills-input">Existing skills <span>Separate skills with commas</span></label>
+        <textarea id="profile-skills-input" name="skills" rows="2"></textarea>
+        <label for="profile-certifications-input">Certifications <span>Separate items with commas</span></label>
+        <textarea id="profile-certifications-input" name="certifications" rows="2"></textarea>
+        <label for="profile-projects-input">Projects or portfolio work <span>Separate items with commas</span></label>
+        <textarea id="profile-projects-input" name="projects" rows="2"></textarea>
+        <div class="modal-actions"><button class="button button-secondary" value="cancel" formnovalidate type="submit">Cancel</button><button class="button button-primary" id="save-profile" value="default" type="submit">Save learner profile <span aria-hidden="true">→</span></button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" id="assessment-modal" aria-labelledby="assessment-modal-title">
+      <form class="modal-card assessment-form" id="assessment-form" method="dialog">
+        <button class="modal-close icon-button" aria-label="Close dialog" value="cancel" type="submit" formnovalidate>×</button>
+        <p class="section-overline">PERSONALIZED SKILL CHECK</p>
+        <h2 id="assessment-modal-title">A quick check-in</h2>
+        <p class="modal-description" id="assessment-intro"></p>
+        <div id="assessment-questions"></div>
+        <p class="form-error" id="assessment-error" role="alert"></p>
+        <div class="modal-actions"><button class="button button-secondary" value="cancel" formnovalidate type="submit">Not now</button><button class="button button-primary" id="submit-assessment" value="default" type="submit">Check my answers <span aria-hidden="true">→</span></button></div>
+      </form>
+    </dialog>
+  </body>
+</html>
